@@ -33,18 +33,18 @@
                             <i class="fa fa-sign-out-alt"></i> Logout
                         </a>
                     </div>
-
+                </div>
             </div>
         </nav>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                    $(document).ready(function () {
-                        $('.navbar-nav .nav-link').on('click', function () {
-                            $('.navbar-nav .nav-link').removeClass('active');
-                            $(this).addClass('active');
-                        });
+            <script>
+                $(document).ready(function () {
+                    $('.navbar-nav .nav-link').on('click', function () {
+                        $('.navbar-nav .nav-link').removeClass('active');
+                        $(this).addClass('active');
                     });
-                </script>
+                });
+            </script>
 
     <!-- Navbar & Hero End -->
 
