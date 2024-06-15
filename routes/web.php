@@ -15,6 +15,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
+
 
 
 /*
@@ -50,8 +52,9 @@ Route::resource('reservations', ReservationController::class);
 Route::resource('restaurants', RestaurantController::class);
 Route::resource('reviews', ReviewController::class);
 
-Route::get('/reservation', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservation');
-Route::get('/reservation-store', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+Route::get('/reservation-store', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('reservation/data', [ReservationController::class, 'reservationsData'])->name('reservation.data');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
