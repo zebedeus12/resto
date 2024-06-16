@@ -1,4 +1,4 @@
-@extends('layouts/layout_welcome');
+@extends('layouts/layout_welcome')
 
 @section('content')
 <div class="container-xxl bg-white p-0">
@@ -51,7 +51,8 @@
                             pengalaman kuliner yang autentik dan memuaskan di tengah-tengah keramaian kota. Terletak di
                             jantung pusat kota, restoran kami menawarkan suasana yang hangat dan ramah, cocok untuk
                             bersantai bersama keluarga dan teman..</p>
-                        <a href="{{ route('login') }}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
+                        <a href="{{ route('login') }}"
+                            class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                         <img class="img-fluid" src="{{ asset('')}}frontend/img/hero.png" alt="">
@@ -116,58 +117,6 @@
     </div>
     <!-- Service End -->
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('')}}frontend/img/slide-3.jpg" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('')}}frontend/img/slide-2.jpg" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('')}}frontend/img/slide-1.jpg" class="d-block mx-auto w-70" alt="slideshow">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5></h5>
-                    <p>-</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    @push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            var myCarousel = document.querySelector('#carouselExampleIndicators');
-            var carousel = new bootstrap.Carousel(myCarousel, {
-                interval: 5000,
-                ride: 'carousel' // auto-slide
-            });
-        });
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-
-
     <!-- About Start -->
     <div class="container-xxl py-5" id="about">
         <div class="container">
@@ -223,7 +172,6 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
                 </div>
             </div>
         </div>

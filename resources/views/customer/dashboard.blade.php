@@ -1,4 +1,4 @@
-@extends('layouts/layout_welcome');
+@extends('layouts/layout_welcome')
 
 
 @section('content')
@@ -47,16 +47,6 @@
         </script>
 
         <!-- Navbar & Hero End -->
-
-        <div class="container-xxl py-5 bg-dark hero-header mb-5">
-
-        </div>
-
-
-        <!-- Service Start -->
-
-        <!-- Service End -->
-
 
         <!-- Menu Start -->
         <div class="container-xxl py-5" id="menu">
