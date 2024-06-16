@@ -20,8 +20,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('login') }}" class="dropdown-item">login</a>
-                            <a href="{{route('register')}}" class="dropdown-item">register</a>
+                            <a href="{{ route('login') }}" class="dropdown-item">Login</a>
+                            <a href="{{route('register')}}" class="dropdown-item">Register</a>
                         </div>
                     </div>
                     <a href="#service" class="nav-item nav-link">Service</a>
@@ -51,7 +51,7 @@
                             pengalaman kuliner yang autentik dan memuaskan di tengah-tengah keramaian kota. Terletak di
                             jantung pusat kota, restoran kami menawarkan suasana yang hangat dan ramah, cocok untuk
                             bersantai bersama keluarga dan teman..</p>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A Table</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                         <img class="img-fluid" src="{{ asset('')}}frontend/img/hero.png" alt="">

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => '2 Resto',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -322,8 +322,8 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
-            'text'        => 'reservation ',
-            'url'         => 'members',
+            'text'        => 'Reservations ',
+            'url'         => 'admin/reservations-admin',
             'icon'        => 'far fa-fw fa-file',
         ],
         [

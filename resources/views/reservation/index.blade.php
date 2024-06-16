@@ -77,7 +77,10 @@
             <div class="row justify-content-center">
                 <div class="col-md-11">
                     <div class="table-responsive">
-                        <h3 class="text-center mb-4" style="color: #ffffff">Daftar Reservasi Anda</h3>
+                        <h3 class="text-center mb-4">
+                            <span style="color: orange">My</span>
+                            <span style="color: white">Reservation</span>
+                        </h3>
                         <table id="reservations-table" class="table table-hovered table-striped table-condensed table-white-mode">
                             <thead>
                                 <tr>

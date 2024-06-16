@@ -52,9 +52,17 @@ Route::resource('reservations', ReservationController::class);
 Route::resource('restaurants', RestaurantController::class);
 Route::resource('reviews', ReviewController::class);
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
-Route::get('/reservation-store', [ReservationController::class, 'store'])->name('reservation.store');
-Route::get('reservation/data', [ReservationController::class, 'reservationsData'])->name('reservation.data');
+// customer reservations
+Route::get('/reservation', [ReservationController::class, 'index'])->middleware('auth')->name('reservation');
+Route::get('/reservation-store', [ReservationController::class, 'store'])->middleware('auth')->name('reservation.store');
+Route::get('reservation/data', [ReservationController::class, 'reservationsData'])->middleware('auth')->name('reservation.data');
+// customer reservations
+
+// admin reservations
+Route::get('/admin/reservations-admin', [ReservationController::class, 'index_admin'])->middleware('auth', 'admin')->name('reservation.admin');
+Route::get('/admin/reservations/approve/{id}', [ReservationController::class, 'approve'])->name('reservations.approve');
+Route::get('/admin/reservations/reject/{id}', [ReservationController::class, 'reject'])->name('reservations.reject');
+// customer reservations
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');

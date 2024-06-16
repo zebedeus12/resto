@@ -18,6 +18,21 @@ class ReservationController extends Controller
         return view('reservation.index', compact('reservations'));
     }
 
+    public function index_admin()
+    {
+        // Retrieve all reservations
+        $reservations = Reservation::all();
+
+        // Calculate counts based on approval status
+        $waitingCount = Reservation::where('approval_by_admin', 0)->count();
+        $approvedCount = Reservation::where('approval_by_admin', 1)->count();
+        $rejectedCount = Reservation::where('approval_by_admin', 2)->count();
+        $canceledCount = Reservation::where('approval_by_admin', 3)->count();
+
+        // Pass the reservations and counts to the view
+        return view('reservation.index_admin', compact('reservations', 'waitingCount', 'approvedCount', 'rejectedCount', 'canceledCount'));
+    }
+
     public function store(Request $request)
     {
         // Validate the request data
@@ -56,15 +71,20 @@ class ReservationController extends Controller
             ->addColumn('action', function($row){
                 // Add action column with buttons of the same size
                 $editBtn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm me-1">Edit</a>';
-                $deleteBtn = '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                $deleteBtn = '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Cancel</a>';
                 return $editBtn . $deleteBtn;
             })
-            ->addColumn('remark', function($row){
-                // Add remark column with badges of the same size
+            ->addColumn('remark', function($row) {
                 if ($row->approval_by_admin == 1) {
                     return '<span class="badge bg-success bg-opacity-20 p-2">Approved</span>';
-                } else {
+                } elseif ($row->approval_by_admin == 0) {
                     return '<span class="badge bg-warning bg-opacity-20 p-2">Waiting</span>';
+                } elseif ($row->approval_by_admin == 2) {
+                    return '<span class="badge bg-danger bg-opacity-20 p-2">Rejected</span>';
+                } elseif ($row->approval_by_admin == 3) {
+                    return '<span class="badge bg-secondary bg-opacity-20 p-2">Canceled</span>';
+                } else {
+                    return ''; // Handle other cases if necessary
                 }
             })
             ->rawColumns(['action', 'remark'])
@@ -80,9 +100,33 @@ class ReservationController extends Controller
         
     }
 
-
     public function destroy($id)
     {
 
+    }
+
+    // dashboard admin
+    public function approve($id)
+    {
+        $reservation = Reservation::find($id);
+        if ($reservation) {
+            $reservation->approval_by_admin = 1; // Set status to approved
+            $reservation->approval_date_by_admin = now();
+            $reservation->save();
+        }
+
+        return redirect()->route('reservation.admin')->with('success', 'Reservation approved successfully.');
+    }
+
+    public function reject($id)
+    {
+        $reservation = Reservation::find($id);
+        if ($reservation) {
+            $reservation->approval_by_admin = 2; // Set status to rejected
+            $reservation->approval_date_by_admin = now();
+            $reservation->save();
+        }
+
+        return redirect()->route('reservation.admin')->with('success', 'Reservation rejected successfully.');
     }
 }
