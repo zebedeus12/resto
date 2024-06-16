@@ -108,14 +108,14 @@ class ProductSeeder extends Seeder
             'name' => 'Hot/Ice Chocolate',
             'description' => 'Es Coklat/Panas Coklat',
             'price' => 17000,
-            'image' => 'frontend/img/HotIce.jpeg',
+            'image' => 'frontend/img/HotIce Chocolate.jpeg',
             'category' => Product::CATEGORY_DRINK
         ]);
         Product::create([
             'name' => 'Milkshake Vanilla',
             'description' => 'Susu Vanilla Kocok',
             'price' => 19000,
-            'image' => 'frontend/img/Milkshake Vanilla.jpeg',
+            'image' => 'frontend/img/Milkshake Vanilla.jpg',
             'category' => Product::CATEGORY_DRINK
         ]);
         Product::create([
