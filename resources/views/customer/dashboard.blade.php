@@ -63,7 +63,6 @@
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-                    >
                 </div>
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                     <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
@@ -113,8 +112,6 @@
                                             </h5>
                                             <small class="fst-italic">Telur Dadar, Roti Panggang, Sosis atau Bacon,
                                                 Kentang Goreng, Dan Pilihan Buah-Buahan Segar</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -130,11 +127,6 @@
                                             </h5>
                                             <small class="fst-italic">Tumpukan pancake lembut dengan pilihan topping
                                                 seperti madu, maple syrup, atau buah-buahan.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange"
-                                                onclick="window.location='{{ route('products.index') }}'">
-                                                shopping_cart_checkout
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -150,8 +142,6 @@
                                             </h5>
                                             <small class="fst-italic"> Bubur oat dengan pilihan topping seperti
                                                 buah-buahan, kacang-kacangan, atau madu.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -167,8 +157,6 @@
                                             </h5>
                                             <small class="fst-italic">Roti gandum panggang dengan lapisan alpukat, telur
                                                 mata sapi, dan taburan rempah.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -185,8 +173,6 @@
                                             <small class="fst-italic">Smoothie dari campuran buah-buahan seperti pisang,
                                                 mangga, dan beri, disajikan dalam mangkuk dengan topping granola, chia
                                                 seed, dan irisan buah.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -203,8 +189,6 @@
                                             <small class="fst-italic">Lapisan yogurt, granola, dan buah-buahan segar
                                                 seperti beri, pisang, dan kiwi. Bisa juga ditambah dengan madu atau
                                                 sirup maple untuk memberikan rasa manis alami.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -221,8 +205,6 @@
                                             <small class="fst-italic">Sarapan lengkap ala Inggris yang terdiri dari
                                                 telur (orak-arik atau mata sapi), sosis, bacon, jamur tumis, tomat
                                                 panggang, kacang panggang, dan roti panggang.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -240,8 +222,6 @@
                                                 dibuat dengan adonan yang diberi tambahan potongan bacon renyah dan
                                                 keju, sehingga menghasilkan kombinasi rasa yang kaya dan tekstur yang
                                                 menarik.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -261,8 +241,6 @@
                                             </h5>
                                             <small class="fst-italic">Salad hijau dengan potongan ayam panggang, tomat,
                                                 mentimun, wortel, dan dressing pilihan</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -278,8 +256,6 @@
                                             </h5>
                                             <small class="fst-italic">Burger daging sapi panggang dengan keju, selada,
                                                 tomat, bawang, dan saus.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -295,8 +271,6 @@
                                             </h5>
                                             <small class="fst-italic">Tumis sayuran segar dengan pilihan saus seperti
                                                 saus tiram atau saus kedelai.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -312,8 +286,6 @@
                                             </h5>
                                             <small class="fst-italic">Pilihan sup harian dengan setengah sandwich
                                                 (misalnya, sandwich ayam panggang atau tuna).</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -329,8 +301,6 @@
                                             </h5>
                                             <small class="fst-italic">Paprika yang diisi dengan campuran nasi, sayuran,
                                                 dan kacang-kacangan.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -345,8 +315,6 @@
                                                 <span class="text-primary">150k</span>
                                             </h5>
                                             <small class="fst-italic">Pizza dengan tomat, mozzarella, dan basil.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -361,8 +329,6 @@
                                             </h5>
                                             <small class="fst-italic">Kotak makan siang dengan berbagai hidangan seperti
                                                 nasi, daging, dan sayuran.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -378,8 +344,6 @@
                                             </h5>
                                             <small class="fst-italic">Pasta dengan saus krim, bacon, dan keju
                                                 parmesan.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -400,8 +364,6 @@
                                             <small class="fst-italic">Fillet salmon panggang dengan rempah-rempah,
                                                 disajikan dengan pilihan sisi seperti nasi atau sayuran
                                                 panggang.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -417,8 +379,6 @@
                                             </h5>
                                             <small class="fst-italic">Pasta spaghetti dengan saus minyak zaitun, bawang
                                                 putih, dan cabe, disajikan dengan parmesan parut.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -434,8 +394,6 @@
                                             </h5>
                                             <small class="fst-italic">Steak sapi panggang dengan saus jus, disajikan
                                                 dengan kentang tumbuk dan sayuran panggang.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -451,8 +409,6 @@
                                             </h5>
                                             <small class="fst-italic"></small> Mangkuk besar berisi nasi atau quinoa,
                                             sayuran panggang, kacang-kacangan, dan saus tahini.
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -469,8 +425,6 @@
                                             <small class="fst-italic">Bebek yang dimasak perlahan dalam lemaknya sendiri
                                                 hingga dagingnya sangat empuk, disajikan dengan kentang goreng dan salad
                                                 hijau.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -486,8 +440,6 @@
                                             <small class="fst-italic">Potongan daging domba yang dipanggang hingga
                                                 empuk, biasanya disajikan dengan saus rosemary atau mint, dan dilengkapi
                                                 dengan sayuran musiman serta kentang.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -503,8 +455,6 @@
                                             <small class="fst-italic">Nasi Italia yang dimasak dengan kaldu hingga
                                                 creamy, seringkali ditambahkan dengan bahan-bahan seperti jamur, udang,
                                                 atau asparagus, serta keju parmesan untuk rasa yang kaya.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -521,8 +471,6 @@
                                             <small class="fst-italic">Hidangan nasi Spanyol yang dimasak dengan saffron,
                                                 kaldu, dan berbagai jenis seafood seperti udang, kerang, dan cumi.
                                                 Dilengkapi dengan paprika dan kacang polong.</small>
-                                            <button class="material-symbols-outlined"
-                                                style="background-color:orange; color:white; border-color:orange">shopping_cart_checkout</button>
                                         </div>
                                     </div>
                                 </div>
@@ -530,6 +478,11 @@
                         </div>
                     </div>
                 </div>
+                <button class="material-symbols-outlined"
+                    style="background-color:orange; color:white; border-color:orange"
+                    onclick="window.location='{{ route('products.index') }}'">
+                    shopping_cart_checkout
+                </button>
             </div>
         </div>
         <!-- Menu End -->
