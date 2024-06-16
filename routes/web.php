@@ -16,6 +16,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\Order1Controller;
 
 
 
@@ -77,3 +80,13 @@ Route::get('/admin', function () {
 Route::get('/pelanggan', function () {
     return view('customer.dashboard');
 })->middleware('auth')->name('dashboard');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::get('/checkout', [Order1Controller::class, 'showCheckoutForm'])->name('checkout.form');
+Route::post('/checkout', [Order1Controller::class, 'processCheckout'])->name('checkout.process');
+Route::get('/pelanggan', function () {
+    return view('customer.dashboard');
+})->name('dashboard');
