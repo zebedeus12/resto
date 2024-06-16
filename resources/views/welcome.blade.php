@@ -189,10 +189,10 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item text-center rounded overflow-hidden">
                         <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-1.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('')}}frontend/img/Chef Arnold.jpeg" alt="">
                         </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
+                        <h5 class="mb-0">Arnold Poernomo</h5>
+                        <small>Chef</small>
                         <div class="d-flex justify-content-center mt-3">
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -203,10 +203,10 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item text-center rounded overflow-hidden">
                         <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-2.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('')}}frontend/img/Chef Marinka.jpg" alt="">
                         </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
+                        <h5 class="mb-0">Maria Irene Susanto</h5>
+                        <small>Chef</small>
                         <div class="d-flex justify-content-center mt-3">
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -217,10 +217,10 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item text-center rounded overflow-hidden">
                         <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-3.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('')}}frontend/img/Chef Renata.jpg" alt="">
                         </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
+                        <h5 class="mb-0">Puti Renatta R. M.</h5>
+                        <small>Chef</small>
                         <div class="d-flex justify-content-center mt-3">
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -231,10 +231,10 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="team-item text-center rounded overflow-hidden">
                         <div class="rounded-circle overflow-hidden m-4">
-                            <img class="img-fluid" src="{{ asset('')}}frontend/img/team-4.jpg" alt="">
+                            <img class="img-fluid" src="{{ asset('')}}frontend/img/Chef Juna.jpeg" alt="">
                         </div>
-                        <h5 class="mb-0">Full Name</h5>
-                        <small>Designation</small>
+                        <h5 class="mb-0">Junior John Rorimpandey</h5>
+                        <small>Chef</small>
                         <div class="d-flex justify-content-center mt-3">
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
@@ -257,53 +257,49 @@
             <div class="owl-carousel testimonial-carousel">
                 <div class="testimonial-item bg-transparent border rounded p-4">
                     <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
+                    <p>Makanannya Sangat Enak</p>
                     <div class="d-flex align-items-center">
                         <img class="img-fluid flex-shrink-0 rounded-circle"
                             src="{{ asset('')}}frontend/img/testimonial-1.jpg" style="width: 50px; height: 50px;">
                         <div class="ps-3">
-                            <h5 class="mb-1">client name</h5>
-                            <small>Profession</small>
+                            <h5 class="mb-1">Nabilla</h5>
+                            <small>Clients</small>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item bg-transparent border rounded p-4">
                     <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
+                    <p>Tempatnya Sangat Nyaman</p>
                     <div class="d-flex align-items-center">
                         <img class="img-fluid flex-shrink-0 rounded-circle"
                             src="{{ asset('')}}frontend/img/testimonial-2.jpg" style="width: 50px; height: 50px;">
                         <div class="ps-3">
-                            <h5 class="mb-1">Client Name</h5>
-                            <small>Profession</small>
+                            <h5 class="mb-1">Anisa</h5>
+                            <small>Clients</small>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item bg-transparent border rounded p-4">
                     <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
+                    <p>Pelayanannya Sangat Baik</p>
                     <div class="d-flex align-items-center">
                         <img class="img-fluid flex-shrink-0 rounded-circle"
                             src="{{ asset('')}}frontend/img/testimonial-3.jpg" style="width: 50px; height: 50px;">
                         <div class="ps-3">
-                            <h5 class="mb-1">Client Name</h5>
-                            <small>Profession</small>
+                            <h5 class="mb-1">Ridwan</h5>
+                            <small>Clients</small>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-item bg-transparent border rounded p-4">
                     <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
+                    <p>Pantas Disebut Restorang Bintang 5</p>
                     <div class="d-flex align-items-center">
                         <img class="img-fluid flex-shrink-0 rounded-circle"
                             src="{{ asset('')}}frontend/img/testimonial-4.jpg" style="width: 50px; height: 50px;">
                         <div class="ps-3">
-                            <h5 class="mb-1">Client Name</h5>
-                            <small>Profession</small>
+                            <h5 class="mb-1">Susi</h5>
+                            <small>Clients</small>
                         </div>
                     </div>
                 </div>
@@ -318,7 +314,7 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="#about">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     <a class="btn btn-link" href="{{ route('reservation') }}">Reservation</a>
                     <a class="btn btn-link" href="">Privacy Policy</a>
