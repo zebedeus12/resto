@@ -57,6 +57,17 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Reservations List</h3>
+            <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <select id="filterStatus" class="form-control">
+                        <option value="" selected>All Status</option>
+                        <option value="Waiting">Waiting</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                        <option value="Canceled">Canceled</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <table id="reservationsTable" class="table table-bordered table-striped">
@@ -94,7 +105,7 @@
                                 @elseif($reservation->approval_by_admin == 2)
                                     <span class="badge badge-danger">Rejected</span>
                                 @elseif($reservation->approval_by_admin == 3)
-                                    <span class="badge badge-secondary">Canceled</span>
+                                    <span class="badge badge-info">Canceled</span>
                                 @endif
                             </td>
                         </tr>
@@ -106,7 +117,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 @stop
@@ -117,7 +128,19 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
-            $('#reservationsTable').DataTable();
+            // Initialize DataTable
+            var table = $('#reservationsTable').DataTable({
+                "paging": true,
+                "ordering": true,
+                "searching": true,
+                "info": true
+            });
+
+            // Filter by status
+            $('#filterStatus').on('change', function() {
+                var status = $(this).val();
+                table.column(7).search(status).draw(); // Adjust the column index based on your table structure
+            });
         });
 
         function confirmAction(action, id) {
@@ -134,7 +157,21 @@
                 confirmButtonText: 'Yes, ' + action + ' it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = url;
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            _method: 'GET' 
+                        },
+                        success: function(response) {
+                            Swal.fire("Success!", response.message, "success");
+                            window.location.reload(); 
+                        },
+                        error: function(error) {
+                            Swal.fire("Error!", error.responseJSON.message, "error");
+                        }
+                    });
                 }
             });
         }

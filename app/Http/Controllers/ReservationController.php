@@ -69,10 +69,12 @@ class ReservationController extends Controller
         return DataTables::of($data)
             ->addIndexColumn() // Add index column
             ->addColumn('action', function($row){
-                // Add action column with buttons of the same size
-                $editBtn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm me-1">Edit</a>';
-                $deleteBtn = '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Cancel</a>';
-                return $editBtn . $deleteBtn;
+                if($row->approval_by_admin == 3) {
+                    return '<a href="' . route('reservation') . '" class="new-reservation btn btn-success btn-sm btn-xs">New Booking</a>';
+                } else {
+                    return '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm btn-xs me-1" onclick="populateEditModal(' . $row->id . ')">Edit</a>' .
+                           '<a href="javascript:void(0)" class="cancel btn btn-danger btn-sm btn-xs" onclick="confirmCancel(' . $row->id . ')">Cancel</a>';
+                }
             })
             ->addColumn('remark', function($row) {
                 if ($row->approval_by_admin == 1) {
@@ -82,7 +84,7 @@ class ReservationController extends Controller
                 } elseif ($row->approval_by_admin == 2) {
                     return '<span class="badge bg-danger bg-opacity-20 p-2">Rejected</span>';
                 } elseif ($row->approval_by_admin == 3) {
-                    return '<span class="badge bg-secondary bg-opacity-20 p-2">Canceled</span>';
+                    return '<span class="badge bg-danger bg-opacity-20 p-2">Canceled</span>';
                 } else {
                     return ''; // Handle other cases if necessary
                 }
@@ -91,14 +93,57 @@ class ReservationController extends Controller
             ->make(true);
     }
 
-    public function edit()
+    public function edit($id)
     {
+        $reservation = Reservation::find($id);
+        if (!$reservation) {
+            abort(404); 
+        }
+
+        return response()->json(['reservation' => $reservation]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $reservation = Reservation::find($id);
+        if (!$reservation) {
+            return response()->json(['error' => 'Reservation not found.'], 404);
+        }
+
+        $request->validate([
+            'cust_name' => 'required|string|max:255',
+            'contact' => 'required|email|max:255',
+            'reservation_date' => 'required|date_format:Y-m-d\TH:i',
+            'number_guest' => 'required|integer',
+            'special_request' => 'nullable|string|max:1000',
+        ]);
+
+        $reservation->cust_name = $request->input('cust_name');
+        $reservation->contact = $request->input('contact');
+        $reservation->reservation_date = $request->input('reservation_date');
+        $reservation->number_guest = $request->input('number_guest');
+        $reservation->special_request = $request->input('special_request');
+        $reservation->approval_by_admin ='0';
         
+        $reservation->save();
+
+        return response()->json(['message' => 'Reservation updated successfully.']);
     }
+
+    public function cancel($id)
+    {
+        $reservation = Reservation::find($id);
+        if ($reservation) {
+            $reservation->approval_by_admin = 3;
+            $reservation->approval_date_by_admin = now();
+            $reservation->save();
+        }
+
+        session(['scrollTo' => 'cart-table']);
+
+        return redirect()->route('reservation')->with('message', 'Reservation canceled successfully.');
+    }
+
 
     public function destroy($id)
     {
@@ -115,7 +160,7 @@ class ReservationController extends Controller
             $reservation->save();
         }
 
-        return redirect()->route('reservation.admin')->with('success', 'Reservation approved successfully.');
+        return redirect()->route('reservation.admin')->with('message', 'Reservation approved successfully.');
     }
 
     public function reject($id)
@@ -127,6 +172,6 @@ class ReservationController extends Controller
             $reservation->save();
         }
 
-        return redirect()->route('reservation.admin')->with('success', 'Reservation rejected successfully.');
+        return redirect()->route('reservation.admin')->with('message', 'Reservation rejected successfully.');
     }
 }

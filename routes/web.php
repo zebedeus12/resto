@@ -59,6 +59,9 @@ Route::resource('reviews', ReviewController::class);
 Route::get('/reservation', [ReservationController::class, 'index'])->middleware('auth')->name('reservation');
 Route::get('/reservation-store', [ReservationController::class, 'store'])->middleware('auth')->name('reservation.store');
 Route::get('reservation/data', [ReservationController::class, 'reservationsData'])->middleware('auth')->name('reservation.data');
+Route::delete('/reservation/cancel/{id}', [ReservationController::class, 'cancel'])->middleware('auth')->name('reservation.cancel');
+Route::get('/reservation/edit/{id}', [ReservationController::class, 'edit'])->middleware('auth')->name('reservation.edit');
+Route::put('/reservation/update/{id}', [ReservationController::class, 'update'])->middleware('auth')->name('reservation.update');
 // customer reservations
 
 // admin reservations

@@ -72,7 +72,7 @@
     </div>
 
     {{-- Show Table Data Reservation --}}
-    <div class="container-fluid bg-dark text-light footer pt-3 mt-3 wow fadeIn" data-wow-delay="0.1s" style="min-height: 100vh;"> 
+    <div class="container-fluid bg-dark text-light footer pt-3 mt-3 wow fadeIn" data-wow-delay="0.1s" style="min-height: 100vh;" id="card-tabel"> 
         <div class="container-fluid mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-11">
@@ -85,13 +85,13 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Reservation Date</th>
+                                    <th style="width: 150px;">Reservation Date</th>
                                     <th>Customer Name</th>
                                     <th>Contact</th>
                                     <th>Number of Guests</th>
                                     <th>Special Requests</th>
                                     <th>Remark</th>
-                                    <th>Action</th>
+                                    <th style="width: 120px;">Action</th>
                                 </tr>
                             </thead>
                         </table>
@@ -164,6 +164,8 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    @include('reservation._modal_edit')
 @stop
 
 @section('css')
@@ -351,4 +353,108 @@
             });
         });
     </script>
+    
+    {{-- Cancel Reservation --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('scrollTo'))
+                $('html, body').animate({
+                    scrollTop: $("#{{ session('scrollTo') }}").offset().top
+                }, 1000);
+            @endif
+        });
+
+        @if(session('status'))
+            Swal.fire({
+                title: 'Success',
+                text: "{{ session('status') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+
+        function confirmCancel(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Do you want to cancel this reservation?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, cancel it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: `{{ url('/reservation/cancel') }}/${id}`,
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            _method: 'DELETE'
+                        },
+                        success: function(response) {
+                            Swal.fire("Success!", response.message, "success");
+                            $('#reservations-table').DataTable().ajax.reload();
+                        },
+                        error: function(error) {
+                            Swal.fire("Error!", error.responseJSON.message, "error");
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+    {{-- Edit Reservation --}}
+    <script>
+        // Edit button click handler
+        function populateEditModal(id) { 
+            $.ajax({
+                url: '/reservation/edit/' + id,
+                type: 'GET',
+                success: function(response) {
+                    var reservation = response.reservation;
+
+                    // Populate data into modal fields
+                    $('#edit_reservation_id').val(reservation.id);
+                    $('#edit_cust_name').val(reservation.cust_name);
+                    $('#edit_contact').val(reservation.contact);
+                    $('#edit_reservation_date').val(reservation.reservation_date.replace(' ', 'T'));
+                    $('#edit_number_guest').val(reservation.number_guest);
+                    $('#edit_special_request').val(reservation.special_request);
+
+                    // Show edit modal
+                    $('#editReservationModal').modal('show');
+                },
+                error: function(error) {
+                    console.log(error);
+                    Swal.fire("Error!", "Failed to fetch reservation data.", "error");
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            // Submit edit form handler
+            $('#editReservationForm').submit(function(e) {
+                e.preventDefault();
+
+                var reservationId = $('#edit_reservation_id').val(); 
+                $.ajax({
+                    url: '/reservation/update/' + reservationId,
+                    type: 'PUT', // Gunakan metode PUT karena Anda menggunakan Laravel
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        Swal.fire("Success!", response.message, "success");
+                        $('#editReservationModal').modal('hide');
+                        $('#reservations-table').DataTable().draw(false);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        Swal.fire("Error!", error.responseJSON.message, "error");
+                    }
+                });
+            });
+        });
+
+    </script>
+    
 @stop
