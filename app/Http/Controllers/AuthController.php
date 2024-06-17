@@ -46,11 +46,17 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
+        // Cek domain email
+        $role = 'user';
+        if (str_ends_with($request->email, '@tworesto.com')) {
+            $role = 'admin';
+        }
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'user', // Set default role to user
+            'role' => $role,
         ]);
 
         return redirect()->route('login')->with('success', 'Registrasi berhasil. Silahkan login.');

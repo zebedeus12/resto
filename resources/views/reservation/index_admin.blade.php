@@ -3,11 +3,11 @@
 @section('title', 'Reservations Dashboard')
 
 @section('content_header')
-    <h1><b>Reservation Dashboard</b></h1>
+    <h1>Reservation Dashboard</h1>
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row mt-4 mb-3">
         <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
                 <div class="inner">

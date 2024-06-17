@@ -77,9 +77,10 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->middleware('auth', 'admin')->name('admin.dashboard');
+// Route::get('/admin', function () {
+//     return view('admin.dashboard');
+// })->middleware('auth', 'admin')->name('admin.dashboard');
+Route::get('/admin', [DashboardController::class, 'dashboard'])->middleware('auth', 'admin')->name('admin.dashboard');
 
 Route::get('/pelanggan', function () {
     return view('customer.dashboard');
