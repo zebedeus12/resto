@@ -1,8 +1,12 @@
 @extends('layouts/layout_welcome')
-
+<style>
+    small {
+        text-color: orange;
+    }
+</style>
 
 @section('content')
-<div class="container-xxl bg-white p-0">
+<div class="container-xxl bg-light p-0">
 
     <!-- Navbar & Hero Start -->
     <div class="container-xxl position-relative p-0" id="home">
@@ -19,20 +23,20 @@
                     <a href="#home" class="nav-item nav-link active">Home</a>
                     <a href="#menu" class="nav-item nav-link">Menu</a>
                     <a href="{{ route('reservation') }}" class="nav-item nav-link">Reservation</a>
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
-                </div>
-                <div class="nav-item dropdown ms-3">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa fa-user"></i> User
-                    </a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item"><i class="fa fa-user"></i> Profile</a>
-                        <a href="#" class="dropdown-item"><i class="fa fa-shopping-cart"></i> Orders</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa fa-sign-out-alt"></i> Logout
+                    <div class="nav-item dropdown ms-3">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-user"></i> User
                         </a>
+                        <div class="dropdown-menu m-0">
+                            <a href="#" class="dropdown-item"><i class="fa fa-user"></i> Profile</a>
+                            <a href="#" class="dropdown-item"><i class="fa fa-shopping-cart"></i> Orders</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" id="logout-button">
+                                <i class="fa fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
                     </div>
+                    <a href="#contact" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>
@@ -44,6 +48,27 @@
                     $(this).addClass('active');
                 });
             });
+            document.getElementById('logout-button').addEventListener('click', function (event) {
+                event.preventDefault();
+                var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = '/login';
+                    } else {
+                        console.error('Logout failed');
+                    }
+                }).catch(error => {
+                    console.error('Logout failed', error);
+                });
+            });
+
         </script>
 
         <!-- Navbar & Hero End -->
