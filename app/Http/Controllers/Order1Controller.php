@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class Order1Controller extends Controller
 {
+    public function index()
+    {
+        $orders = Order1::all(); // Fetch all orders from order1s table
+        return view('order.index', compact('orders')); // Pass the data to the view
+    }
     public function showCheckoutForm()
     {
         // Hitung total harga dari keranjang
